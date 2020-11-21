@@ -27,16 +27,16 @@ class World:
         grid = self.grid
         available = []
         if not grid[position[0] - 1][position[1]]:
-            available.append([-1, 0])
+            available.append((-1, 0))
         if not grid[position[0] + 1][position[1]]:
-            available.append([1, 0])
+            available.append((1, 0))
         if not grid[position[0]][position[1] - 1]:
-            available.append([0, -1])
+            available.append((0, -1))
         if not grid[position[0]][position[1] + 1]:
-            available.append([0, 1])
+            available.append((0, 1))
         return available
 
     def move(self, position, action):
-        newPosition = [position[0] + action[0], position[1] + action[1]]
+        newPosition = (position[0] + action[0], position[1] + action[1])
         # print("Agent moves to {0}".format(newPosition))
         return newPosition, self.rewards[newPosition[0]][newPosition[1]]
